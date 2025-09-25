@@ -54,7 +54,10 @@ public class OthelloBoard {
 	 * @return P1,P2 or EMPTY, EMPTY is returned for an invalid (row,col)
 	 */
 	public char get(int row, int col) {
-		return EMPTY;
+		if (!(validCoordinate(row, col))) { // perform valid check
+			return EMPTY;
+		}
+		return board[row][col];
 	}
 
 	/**
