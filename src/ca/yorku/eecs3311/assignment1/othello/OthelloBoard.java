@@ -65,7 +65,9 @@ public class OthelloBoard {
 	 *         a position on the board.
 	 */
 	private boolean validCoordinate(int row, int col) {
-		return true;
+		boolean isRowValid = row > 0 && row < dim - 1; // check if row is in bounds
+		boolean isColValid = col > 0 && col < dim - 1; // check if column is in bounds
+		return isRowValid && isColValid;
 	}
 
 	/**
