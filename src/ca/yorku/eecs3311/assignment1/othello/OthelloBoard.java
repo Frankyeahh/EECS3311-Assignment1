@@ -40,7 +40,11 @@ public class OthelloBoard {
 	 * @return P2 or P1, the opposite of player
 	 */
 	public static char otherPlayer(char player) {
-		return EMPTY;
+		if (player == P1) {
+			return P2;
+		} else {
+			return P1;
+		}
 	}
 
 	/**
