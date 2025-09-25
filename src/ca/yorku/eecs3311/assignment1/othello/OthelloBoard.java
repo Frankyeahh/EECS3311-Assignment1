@@ -155,8 +155,18 @@ public class OthelloBoard {
 	 */
 	public int getCount(char player) {
 		int count = 0;
+
+		for (int row = 0; row < dim; row++) {
+			for (int col = 0; row < dim; row++) {
+				if (board[row][col] == player) {
+					count++;
+				}
+			}
+		}
+
 		return count;
 	}
+
 
 	/**
 	 * @return a string representation of this, just the play area, with no
