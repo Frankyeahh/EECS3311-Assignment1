@@ -42,8 +42,10 @@ public class OthelloBoard {
 	public static char otherPlayer(char player) {
 		if (player == P1) {
 			return P2;
-		} else {
+		} else if (player == P2) {
 			return P1;
+		} else {
+			return EMPTY;
 		}
 	}
 
@@ -197,7 +199,7 @@ public class OthelloBoard {
 		int count = 0;
 
 		for (int row = 0; row < dim; row++) {
-			for (int col = 0; row < dim; row++) {
+			for (int col = 0; col < dim; col++) {
 				if (board[row][col] == player) {
 					count++;
 				}
