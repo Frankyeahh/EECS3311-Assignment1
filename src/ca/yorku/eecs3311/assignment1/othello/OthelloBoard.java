@@ -147,11 +147,29 @@ public class OthelloBoard {
 	 *         board is reached before seeing a player token.
 	 */
 	private int flip(int row, int col, int drow, int dcol, char player) {
-	    boolean valid = validCoordinate(row,col);
-	    if(valid == true) {
-	        
-	    }
-	    return -1;
+		
+		boolean valid = validCoordinate(row,col);
+		int counter = 0;
+		
+		if(valid && get(row,col)==EMPTY) {
+			if(hasMove(row,col,drow,dcol)==player) {
+				//check next position in direction
+				int currentRow = row + drow;
+				int currentCol = col + dcol;
+				
+				while(get(currentRow,currentCol) != player) {
+					
+					board[currentRow][currentCol] = player;
+					counter++;
+					
+					currentRow += drow;
+					currentCol +=dcol;
+				}
+			}
+		    return counter;
+
+		}
+			return -1;
 	}
 
 	/**
@@ -181,6 +199,47 @@ public class OthelloBoard {
 	 *         neither do.
 	 */
 	public char hasMove() {
+		
+		boolean p1HasMove = false;
+		boolean p2HasMove = false;
+		
+		for(int row=0;row<dim;row++) {
+			for(int col=0;col<dim;col++) {
+				if(get(row,col)==EMPTY) {
+					for(int drow=-1;drow<=1;drow++) {
+						for(int dcol=-1;dcol<=1;dcol++) {
+							
+							//if no position changed, continue the scanning
+							if(drow==0 && dcol==0) {
+								continue;
+							}
+							if(hasMove(row,col,drow,dcol)==EMPTY) {
+								continue;
+							}
+							else {
+								//
+								char whoWins = hasMove(row,col,drow,dcol);
+								if(whoWins == P1) {
+									 p1HasMove = true;
+								}
+								else
+									p2HasMove = true;
+							}
+							
+							
+						}
+					}
+				}
+			}
+		}
+		if(p1HasMove && p2HasMove)
+			return BOTH;
+		else if(p1HasMove) {
+			return P1;
+		}
+		else if(p2HasMove) {
+			return P2;
+		}
 		return EMPTY;
 	}
 
@@ -198,7 +257,26 @@ public class OthelloBoard {
 		// HINT: Use some of the above helper methods to get this methods
 		// job done!!
 
-		return true;
+		boolean hasFoundFlag = false;
+		if(validCoordinate(row,col)&& get(row,col)==EMPTY) {
+			for(int drow=-1;drow<=1;drow++) {
+				for(int dcol = -1; dcol<=1;dcol++) {
+					
+					if(drow==0&&dcol==0) {
+						continue;
+					}
+					if(hasMove(row,col,drow,dcol)==player) {
+						hasFoundFlag = true;
+						flip(row,col,drow,dcol,player);
+					}
+					
+				}
+			}
+			if(hasFoundFlag) {
+				board[row][col]=player;
+			}
+		}
+		return hasFoundFlag;
 	}
 
 	/**
