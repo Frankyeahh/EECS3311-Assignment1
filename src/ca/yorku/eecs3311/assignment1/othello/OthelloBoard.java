@@ -92,6 +92,40 @@ public class OthelloBoard {
 	 *         alternation
 	 */
 	private char alternation(int row, int col, int drow, int dcol) {
+
+		// ensure the position is empty
+		if (get(row, col) != EMPTY) {
+			return EMPTY;
+		}
+
+		// get coordinates from moving in direction
+		int r = row + drow;
+		int c = col + dcol;
+
+		// check validity of new cords and ensure its not empty
+		if (!(validCoordinate(r, c)) || get(r, c) == EMPTY) { // check
+			return EMPTY;
+		}
+
+		// firstPlayer = the one we bump into immediately
+		char firstPlayer = get(r, c);
+		// keep moving in that direction while the first player owns it
+		while (validCoordinate(r, c) && get(r, c) == firstPlayer) {
+			r = r + drow;
+			c = c + dcol;
+		}
+
+		// if we are out of bounds or empty return EMPTY
+		if (!(validCoordinate(r, c)) || get(r, c) == EMPTY) {
+			return EMPTY;
+		}
+
+		// if current position belongs to the otherPlayer then return it
+		if (get(r, c) == otherPlayer(firstPlayer)) {
+			return get(r, c);
+		}
+
+		// otherwise return EMPTY
 		return EMPTY;
 	}
 
@@ -111,6 +145,7 @@ public class OthelloBoard {
 	 *         board is reached before seeing a player token.
 	 */
 	private int flip(int row, int col, int drow, int dcol, char player) {
+
 		return -1;
 	}
 
