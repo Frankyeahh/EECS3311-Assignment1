@@ -40,7 +40,13 @@ public class OthelloBoard {
 	 * @return P2 or P1, the opposite of player
 	 */
 	public static char otherPlayer(char player) {
-		return EMPTY;
+		if (player == P1) {
+			return P2;
+		} else if (player == P2) {
+			return P1;
+		} else {
+			return EMPTY;
+		}
 	}
 
 	/**
@@ -50,7 +56,10 @@ public class OthelloBoard {
 	 * @return P1,P2 or EMPTY, EMPTY is returned for an invalid (row,col)
 	 */
 	public char get(int row, int col) {
-		return EMPTY;
+		if (!(validCoordinate(row, col))) { // perform valid check
+			return EMPTY;
+		}
+		return board[row][col];
 	}
 
 	/**
@@ -61,7 +70,9 @@ public class OthelloBoard {
 	 *         a position on the board.
 	 */
 	private boolean validCoordinate(int row, int col) {
-		return true;
+		boolean isRowValid = row >= 0 && row < dim; // check if row is in bounds
+		boolean isColValid = col >= 0 && col < dim; // check if column is in bounds
+		return isRowValid && isColValid;
 	}
 
 	/**
@@ -83,6 +94,40 @@ public class OthelloBoard {
 	 *         alternation
 	 */
 	private char alternation(int row, int col, int drow, int dcol) {
+
+		// ensure the position is empty
+		if (get(row, col) != EMPTY) {
+			return EMPTY;
+		}
+
+		// get coordinates from moving in direction
+		int r = row + drow;
+		int c = col + dcol;
+
+		// check validity of new cords and ensure its not empty
+		if (!(validCoordinate(r, c)) || get(r, c) == EMPTY) { // check
+			return EMPTY;
+		}
+
+		// firstPlayer = the one we bump into immediately
+		char firstPlayer = get(r, c);
+		// keep moving in that direction while the first player owns it
+		while (validCoordinate(r, c) && get(r, c) == firstPlayer) {
+			r = r + drow;
+			c = c + dcol;
+		}
+
+		// if we are out of bounds or empty return EMPTY
+		if (!(validCoordinate(r, c)) || get(r, c) == EMPTY) {
+			return EMPTY;
+		}
+
+		// if current position belongs to the otherPlayer then return it
+		if (get(r, c) == otherPlayer(firstPlayer)) {
+			return get(r, c);
+		}
+
+		// otherwise return EMPTY
 		return EMPTY;
 	}
 
@@ -102,12 +147,11 @@ public class OthelloBoard {
 	 *         board is reached before seeing a player token.
 	 */
 	private int flip(int row, int col, int drow, int dcol, char player) {
-		
-		boolean valid = validCoordinate(row,col);
-		if(valid==true) {
-			
-		}
-		return -1;
+	    boolean valid = validCoordinate(row,col);
+	    if(valid == true) {
+	        
+	    }
+	    return -1;
 	}
 
 	/**
@@ -123,7 +167,7 @@ public class OthelloBoard {
 		
 		boolean valid = validCoordinate(row,col);
 		
-		if(!valid&&get(row,col)!=EMPTY){
+		if(!valid || get(row,col)!=EMPTY){
 	
 			return EMPTY;
 		}
@@ -164,8 +208,18 @@ public class OthelloBoard {
 	 */
 	public int getCount(char player) {
 		int count = 0;
+
+		for (int row = 0; row < dim; row++) {
+			for (int col = 0; col < dim; col++) {
+				if (board[row][col] == player) {
+					count++;
+				}
+			}
+		}
+
 		return count;
 	}
+
 
 	/**
 	 * @return a string representation of this, just the play area, with no
