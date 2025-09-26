@@ -102,6 +102,11 @@ public class OthelloBoard {
 	 *         board is reached before seeing a player token.
 	 */
 	private int flip(int row, int col, int drow, int dcol, char player) {
+		
+		boolean valid = validCoordinate(row,col);
+		if(valid==true) {
+			
+		}
 		return -1;
 	}
 
@@ -115,7 +120,15 @@ public class OthelloBoard {
 	 * @return P1,P2,EMPTY
 	 */
 	private char hasMove(int row, int col, int drow, int dcol) {
-		return EMPTY;
+		
+		boolean valid = validCoordinate(row,col);
+		
+		if(!valid&&get(row,col)!=EMPTY){
+	
+			return EMPTY;
+		}
+		return alternation(row,col,drow,dcol);
+		
 	}
 
 	/**
