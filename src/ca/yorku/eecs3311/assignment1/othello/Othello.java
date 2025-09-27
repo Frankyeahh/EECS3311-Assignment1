@@ -87,7 +87,8 @@ public class Othello {
 	 * @return whether the game is over (no player can move next)
 	 */
 	public boolean isGameOver() {
-		return true;
+		// check if hasMove return EMPTY
+		return board.hasMove() == OthelloBoard.EMPTY;
 	}
 
 	/**
