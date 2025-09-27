@@ -16,6 +16,7 @@ import java.util.Random;
  */
 public class Othello {
 	public static final int DIMENSION = 8; // This is an 8x8 game
+	private OthelloBoard board = new OthelloBoard(DIMENSION);
 	private char whosTurn = OthelloBoard.P1; // P1 moves first!
 	private int numMoves = 0;
 
@@ -47,7 +48,9 @@ public class Othello {
 	 * @return the number of tokens for player on the board
 	 */
 	public int getCount(char player) {
-		return 0;
+		
+		int counter = board.getCount(player);
+		return counter;
 	}
 
 	/**
@@ -56,7 +59,18 @@ public class Othello {
 	 * @return P1, P2 or EMPTY for no winner, or the game is not finished.
 	 */
 	public char getWinner() {
+		
+		if(board.hasMove()==OthelloBoard.EMPTY) {
+			if(getCount(OthelloBoard.P1)>getCount(OthelloBoard.P2)) {
+				return OthelloBoard.P1;
+			}
+			else if(getCount(OthelloBoard.P2)>getCount(OthelloBoard.P1)) {
+				
+				return OthelloBoard.P2;
+			}
+		}
 		return OthelloBoard.EMPTY;
+		
 	}
 
 	/**
@@ -72,7 +86,7 @@ public class Othello {
 	 * @return a string representation of the board.
 	 */
 	public String getBoardString() {
-		return "";
+		return board.toString();
 	}
 
 	/**
