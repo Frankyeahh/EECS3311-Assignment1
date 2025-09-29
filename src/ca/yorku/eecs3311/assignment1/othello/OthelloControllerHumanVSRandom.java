@@ -7,6 +7,14 @@ package ca.yorku.eecs3311.assignment1.othello;
  */
 public class OthelloControllerHumanVSRandom {
 	
+	protected Othello othello;
+	PlayerHuman player1;
+	PlayerRandom player2;
+	public void OthelloControllerHumanVSRandom() {
+		this.othello = new Othello();
+		this.player1 = new PlayerHuman(this.othello, OthelloBoard.P1);
+		this.player2 = new PlayerRandom(this.othello, OthelloBoard.P2);
+	}
 	/**
 	 * Run main to play a Human (P1) against the computer P2. 
 	 * The computer uses a random strategy, that is, it randomly picks 

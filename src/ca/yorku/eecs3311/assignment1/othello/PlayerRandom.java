@@ -12,15 +12,23 @@ import java.util.Random;
  */
 public class PlayerRandom {
 	
+	private Othello othello;
+	private char player;
+
 	private Random rand = new Random();
 
-	public Move getMove(OthelloBoard board, char player) {
+	public PlayerRandom(Othello othello, char player) {
+		this.othello = othello;
+		this.player = player;
+	}
+
+	public Move getMove() {
 		ArrayList<Move> possibleMoves = new ArrayList<>();
 		
 		// search for possible moves
 		for (int row = 0; row < Othello.DIMENSION; row++) {
 			for (int col = 0; col < Othello.DIMENSION; col++) {
-				if (board.isValidMove(row, col, player)) {
+				if (othello.getBoard().isValidMove(row, col, player)) {
 					possibleMoves.add(new Move(row, col));
 				}
 			}

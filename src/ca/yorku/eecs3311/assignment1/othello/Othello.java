@@ -91,6 +91,10 @@ public class Othello {
 		return board.hasMove() == OthelloBoard.EMPTY;
 	}
 
+	public OthelloBoard getBoard() {
+		return this.board;
+	}
+
 	/**
 	 * 
 	 * @return a string representation of the board.
