@@ -9,6 +9,7 @@ public class OthelloControllerHumanVSHuman {
 
 	protected Othello othello;
 	PlayerHuman player1, player2;
+	GameReporter reporter;
 
 	/**
 	 * Constructs a new OthelloController with a new Othello game, ready to play
@@ -19,12 +20,13 @@ public class OthelloControllerHumanVSHuman {
 		this.othello = new Othello();
 		this.player1 = new PlayerHuman(this.othello, OthelloBoard.P1);
 		this.player2 = new PlayerHuman(this.othello, OthelloBoard.P2);
+		this.reporter = new GameReporter(this.othello);
 	}
 
 	public void play() {
 		
 		while (!othello.isGameOver()) {
-			this.report();
+			this.reporter.report();
 
 			Move move = null;
 			char whosTurn = othello.getWhosTurn();
@@ -34,33 +36,13 @@ public class OthelloControllerHumanVSHuman {
 			if (whosTurn == OthelloBoard.P2)
 				move = player2.getMove();
 
-			this.reportMove(whosTurn, move);
+			this.reporter.reportMove(whosTurn, move);
 			othello.move(move.getRow(), move.getCol());
 		}
-		this.reportFinal();
+		this.reporter.reportFinal();
 	}
 
-	private void reportMove(char whosTurn, Move move) {
-		System.out.println(whosTurn + " makes move " + move + "\n");
-	}
 
-	private void report() {
-		
-		String s = othello.getBoardString() + OthelloBoard.P1 + ":" 
-				+ othello.getCount(OthelloBoard.P1) + " "
-				+ OthelloBoard.P2 + ":" + othello.getCount(OthelloBoard.P2) + "  " 
-				+ othello.getWhosTurn() + " moves next";
-		System.out.println(s);
-	}
-
-	private void reportFinal() {
-		
-		String s = othello.getBoardString() + OthelloBoard.P1 + ":" 
-				+ othello.getCount(OthelloBoard.P1) + " "
-				+ OthelloBoard.P2 + ":" + othello.getCount(OthelloBoard.P2) 
-				+ "  " + othello.getWinner() + " won\n";
-		System.out.println(s);
-	}
 	/**
 	 * Run main to play two Humans against each other at the console.
 	 * @param args
