@@ -36,6 +36,34 @@ public class OthelloBoard {
 
 	/**
 	 * 
+	 * @param row    of position player is trying to move to
+	 * @param col    of position player is trying to move to
+	 * @param player P1 or P2
+	 * @return whether the player has a valid move
+	 */
+	public boolean isValidMove(int row, int col, char player) {
+		// check if coordinates are valid and spot is empty
+		if (!validCoordinate(row, col) || get(row, col) != EMPTY) {
+			return false;
+		}
+
+		// check all directions around the spot for a valid move
+		for (int drow = -1; drow <= 1; drow++) {
+			for (int dcol = -1; dcol <= 1; dcol++) {
+				if (drow == 0 && dcol == 0) {
+					continue; // skip no-move direction
+				}
+				if (hasMove(row, col, drow, dcol) == player) {
+					return true; // valid move found in this direction
+				}
+			}
+		}
+		// if no valid moves found return false
+		return false;
+	}
+
+	/**
+	 * 
 	 * @param player either P1 or P2
 	 * @return P2 or P1, the opposite of player
 	 */
