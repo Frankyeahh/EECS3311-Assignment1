@@ -18,8 +18,8 @@ public class PlayerRandom {
 		ArrayList<Move> possibleMoves = new ArrayList<>();
 		
 		// search for possible moves
-		for(int row = 0; row < Othello.DIMENSION-1; row++) {
-			for(int col = 0; col < Othello.DIMENSION-1; col++) {
+		for (int row = 0; row < Othello.DIMENSION; row++) {
+			for (int col = 0; col < Othello.DIMENSION; col++) {
 				if (board.isValidMove(row, col, player)) {
 					possibleMoves.add(new Move(row, col));
 				}
