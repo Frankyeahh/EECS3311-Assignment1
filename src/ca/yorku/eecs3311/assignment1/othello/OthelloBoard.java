@@ -150,7 +150,8 @@ public class OthelloBoard {
 			return EMPTY;
 		}
 
-		// if current position belongs to the otherPlayer then return it
+		// if current position belongs to the otherPlayer then return the OTHER player
+		// This means: if we have a sequence like O...O X, then X can flip the O's
 		if (get(r, c) == otherPlayer(firstPlayer)) {
 			return get(r, c);
 		}
@@ -185,7 +186,8 @@ public class OthelloBoard {
 				int currentRow = row + drow;
 				int currentCol = col + dcol;
 				
-				while(get(currentRow,currentCol) != player) {
+				// Keep flipping until we reach the player's piece or go out of bounds
+				while(validCoordinate(currentRow, currentCol) && get(currentRow,currentCol) != player) {
 					
 					board[currentRow][currentCol] = player;
 					counter++;
@@ -293,6 +295,7 @@ public class OthelloBoard {
 					if(drow==0&&dcol==0) {
 						continue;
 					}
+					// Check if this direction allows the player to make a move
 					if(hasMove(row,col,drow,dcol)==player) {
 						hasFoundFlag = true;
 						flip(row,col,drow,dcol,player);
