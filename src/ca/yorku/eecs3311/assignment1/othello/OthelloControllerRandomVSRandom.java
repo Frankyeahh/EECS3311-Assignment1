@@ -48,7 +48,6 @@ public class OthelloControllerRandomVSRandom {
                 }
             }
 
-            System.out.println(othello.getWinner() + " has won!");
             if(othello.getWinner() == OthelloBoard.P1)
                 p1wins++;
             else if (othello.getWinner() == OthelloBoard.P2)
