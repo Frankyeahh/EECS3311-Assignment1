@@ -7,6 +7,40 @@ package ca.yorku.eecs3311.assignment1.othello;
  */
 public class OthelloControllerHumanVSGreedy {
 	
+	protected Othello othello;
+	PlayerGreedy P2;
+	PlayerHuman P1;
+	GameReporter gameReporter;
+	
+	
+	public OthelloControllerHumanVSGreedy() {
+		this.othello = new Othello();
+		this.P1 = new PlayerHuman(othello,OthelloBoard.P1);
+		this.P2 = new PlayerGreedy(othello,OthelloBoard.P2);
+		this.gameReporter = new GameReporter(othello);
+	}
+	
+public void play() {
+	
+	while(!othello.isGameOver()) {
+		
+		gameReporter.report();
+		Move move = null;
+		char whosTurn = othello.getWhosTurn();
+		
+		if(whosTurn == OthelloBoard.P1) {
+			move = P1.getMove();
+		}
+		if(whosTurn == OthelloBoard.P2) {
+			move = P2.getMove();
+		}
+		gameReporter.reportMove(whosTurn, move);
+		
+		othello.move(move.getRow(), move.getCol());
+		
+	}
+	gameReporter.reportFinal();
+	}
 	/**
 	 * Run main to play a Human (P1) against the computer P2. 
 	 * The computer uses a greedy strategy, that is, it picks the first
@@ -16,6 +50,6 @@ public class OthelloControllerHumanVSGreedy {
 	 */
 	public static void main(String[] args) {
 		OthelloControllerHumanVSGreedy oc = new OthelloControllerHumanVSGreedy();
-		// oc.play(); // this should work
+		oc.play(); // this should work
 	}
 }

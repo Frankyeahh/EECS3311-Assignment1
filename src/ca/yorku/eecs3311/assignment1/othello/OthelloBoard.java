@@ -328,6 +328,18 @@ public class OthelloBoard {
 
 		return count;
 	}
+	public OthelloBoard copy() {
+		
+		OthelloBoard newBoard = new OthelloBoard(dim);
+		for(int row=0;row<dim;row++) {
+			for(int col=0;col<dim;col++) {
+				
+				newBoard.board[row][col] = board[row][col];
+			}
+		}
+		return newBoard;
+		
+	}
 
 
 	/**

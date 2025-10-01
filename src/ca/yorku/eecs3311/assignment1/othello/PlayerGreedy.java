@@ -21,7 +21,41 @@ package ca.yorku.eecs3311.assignment1.othello;
  */
 
 public class PlayerGreedy {
+	
+	private Othello othello;
+	private char player;
+	
+	
+	public PlayerGreedy(Othello othello, char player) {
+		
+		this.othello = othello;
+		this.player = player;
+	}
+
+
 	public Move getMove() {
-		return null;
+
+		int best_counter = 0;
+		Move bestmove = null;
+		for(int row=0; row<othello.DIMENSION;row++) {
+			for(int col = 0; col<othello.DIMENSION;col++) {
+				if(othello.getBoard().isValidMove(row, col, player)) {
+
+					OthelloBoard ob = othello.getBoard().copy();
+					ob.move(row, col, player);
+					
+					int validToken = ob.getCount(player);
+					
+					if(validToken>best_counter) {
+						best_counter = validToken;
+						bestmove = new Move(row,col);
+
+					}
+				}
+				
+			}
+
+		}
+		return bestmove;
 	}
 }
