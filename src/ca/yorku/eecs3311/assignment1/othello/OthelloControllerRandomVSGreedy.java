@@ -21,5 +21,6 @@ public class OthelloControllerRandomVSGreedy {
 
 		System.out.println("Probability P1 wins=" + (float) p1wins / numGames);
 		System.out.println("Probability P2 wins=" + (float) p2wins / numGames);
+
 	}
 }

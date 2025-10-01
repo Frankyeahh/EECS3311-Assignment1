@@ -28,7 +28,7 @@ public class PlayerRandom {
 		// search for possible moves
 		for (int row = 0; row < Othello.DIMENSION; row++) {
 			for (int col = 0; col < Othello.DIMENSION; col++) {
-				if (othello.getBoard().isValidMove(row, col, player)) {
+				if (othello.getBoard().isValidMove(row, col, othello.getWhosTurn())) {
 					possibleMoves.add(new Move(row, col));
 				}
 			}
@@ -38,7 +38,7 @@ public class PlayerRandom {
 		if (possibleMoves.isEmpty()) {
 			return null;
 		}
-		
+
 		// randomly select a move from possibleMoves list
 		int random = rand.nextInt(possibleMoves.size());
 		return possibleMoves.get(random);
