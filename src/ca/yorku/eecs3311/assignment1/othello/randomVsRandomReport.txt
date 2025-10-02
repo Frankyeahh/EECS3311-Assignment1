@@ -12,14 +12,19 @@ I thought the video was a neat insight into how us "Hackers" are able to use cod
 to simplify methods in statistics. Jake Vanderplas did a great job and keeping his speach engaging
 and it was a great insight into the world of code and statistics.
 
-4) H0 is that the first player has no advantage over the second player
+4) H0 is that neither player has an advantage over the other
 
-5) Ha is that the second player has some advantage over the first player
+5) Ha is that some player has some advantage over the other player
 
 6) Choose one of the following and delete the other:
    My experimental results do not support H0, so they support Ha
 
 7) As in the video, use either math or code (add a Java Class) to argue for or against H0
+    I created StatisticalAnalysis.java implementing Jake Vanderplas simulation approach.
+    The code simulated 100,000 fair games and found p-value = 0.0, meaning the observed 507-game difference
+    between P2 (5039 wins) and P1 (4532 wins) would never occur by
+    chance in a fair game. This strongly rejects H0 and confirms
+    that P2 has a statistically significant advantage.
 
 References: 
 https://www.thoughtco.com/null-hypothesis-vs-alternative-hypothesis-3126413
