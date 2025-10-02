@@ -1,21 +1,30 @@
 RandomVSRandom Report
 
 1) What is your conclusion, does the first or
-second player have some advantage, at least for a random strategy? 
+second player have some advantage, at least for a random strategy?
+Based on the results of the 10000 game simulation it seems as if the 2nd player has a clear advantage
+as they win roughly 5.7% more of the time (P2: 50.74% vs P1: 45.02%).
 
 2) Watch https://www.youtube.com/watch?v=Iq9DzN6mvYA
 
 3) Briefly write your thoughts on the above video below:
+I thought the video was a neat insight into how us "Hackers" are able to use code
+to simplify methods in statistics. Jake Vanderplas did a great job and keeping his speach engaging
+and it was a great insight into the world of code and statistics.
 
-4) H0 is 
+4) H0 is that neither player has an advantage over the other
 
-5) Ha is 
+5) Ha is that some player has some advantage over the other player
 
 6) Choose one of the following and delete the other:
-   My experimental results support H0, so they do not support Ha
    My experimental results do not support H0, so they support Ha
 
 7) As in the video, use either math or code (add a Java Class) to argue for or against H0
+    I created StatisticalAnalysis.java implementing Jake Vanderplas simulation approach.
+    The code simulated 100,000 fair games and found p-value = 0.0, meaning the observed 572-game difference
+    between P2 (5074 wins) and P1 (4502 wins) would never occur by
+    chance in a fair game. This strongly rejects H0 and confirms
+    that P2 has a statistically significant advantage.
 
 References: 
 https://www.thoughtco.com/null-hypothesis-vs-alternative-hypothesis-3126413

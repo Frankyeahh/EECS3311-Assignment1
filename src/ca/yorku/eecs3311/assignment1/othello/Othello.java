@@ -39,6 +39,20 @@ public class Othello {
 	 * @return whether the move was successfully made.
 	 */
 	public boolean move(int row, int col) {
+        // check if current player can move
+        char whoCanMove = board.hasMove();
+
+        // if curr player can't move skip turn
+        if(whoCanMove != whosTurn && whoCanMove != OthelloBoard.BOTH){
+            // switch turn to other player
+            whosTurn = OthelloBoard.otherPlayer(whosTurn);
+            return true;
+        }
+
+        // if neither player can move
+        if(whoCanMove == OthelloBoard.EMPTY){
+            return false;
+        }
 		// check if move is success
 		boolean success = board.move(row, col, whosTurn);
 

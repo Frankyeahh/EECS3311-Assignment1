@@ -38,7 +38,7 @@ public class OthelloControllerHumanVSRandom {
 				move = player2.getMove();
 
 			this.reporter.reportMove(whosTurn, move);
-			othello.move(move.getRow(), move.getCol());
+            othello.move(move.getRow(), move.getCol());
 			this.reporter.report(); // ← FIXED: Show board AFTER move is made
 		}
 		this.reporter.reportFinal();
