@@ -1,11 +1,16 @@
 RandomVSRandom Report
 
 1) What is your conclusion, does the first or
-second player have some advantage, at least for a random strategy? 
+second player have some advantage, at least for a random strategy?
+Based on the results of the 10000 game simulation it seems as if the 2nd player might have some advantage
+as they win roughly 3-4% more of the time.
 
 2) Watch https://www.youtube.com/watch?v=Iq9DzN6mvYA
 
 3) Briefly write your thoughts on the above video below:
+I thought the video was a neat insight into how us "Hackers" are able to use code
+to simplify methods in statistics. Jake Vanderplas did a great job and keeping his speach engaging
+and it was a great insight into the world of code and statistics.
 
 4) H0 is that the first player has no advantage over the second player
 

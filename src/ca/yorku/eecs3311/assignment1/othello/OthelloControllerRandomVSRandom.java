@@ -57,6 +57,7 @@ public class OthelloControllerRandomVSRandom {
 
         }
 
+        System.out.println("Results: P1 won " + p1wins + " games, and P2 won " + p2wins +".");
 		System.out.println("Probability P1 wins=" + (float) p1wins / numGames);
 		System.out.println("Probability P2 wins=" + (float) p2wins / numGames);
 	}
