@@ -3,12 +3,12 @@ package ca.yorku.eecs3311.assignment1.othello;
  * Statistical analysis for RandomVsRandom simulation
  * Implements the "hacker statistics" approach from Jake Vanderplas' PyCon talk
  */
-public class StasticalAnalysis {
+public class StatisticalAnalysis {
 
     public static void main(String[] args) {
-        int p1Wins = 4532;
-        int p2Wins = 5039;
-        // exclude tied from data
+        int p1Wins = 4502;
+        int p2Wins = 5074;
+        // exclude tied games from data
         int totalDecidedGames = p1Wins + p2Wins;
         int observedDifference = Math.abs(p1Wins - p2Wins);
 
