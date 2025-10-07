@@ -23,7 +23,7 @@ public class OthelloControllerRandomVSRandom {
 
 	public static void main(String[] args) {
 		
-		int p1wins = 0, p2wins = 0, ties = 0, numGames = 10000;
+		int p1wins = 0, p2wins = 0, numGames = 10000;
 
         // loop over games and simulate
         for(int game = 0; game < numGames; game++) {
@@ -52,14 +52,10 @@ public class OthelloControllerRandomVSRandom {
                 p1wins++;
             else if (othello.getWinner() == OthelloBoard.P2)
                 p2wins++;
-            else
-                ties++;
 
         }
 
-        System.out.println("Results: P1 won " + p1wins + " games, P2 won " + p2wins + " games, and " + ties + " ties.");
 		System.out.println("Probability P1 wins=" + (float) p1wins / numGames);
 		System.out.println("Probability P2 wins=" + (float) p2wins / numGames);
-		System.out.println("Probability of ties=" + (float) ties / numGames);
 	}
 }

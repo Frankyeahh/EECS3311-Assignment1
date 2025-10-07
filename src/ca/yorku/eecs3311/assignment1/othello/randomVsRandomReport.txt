@@ -9,7 +9,7 @@ as they win roughly 5.7% more of the time (P2: 50.74% vs P1: 45.02%).
 
 3) Briefly write your thoughts on the above video below:
 I thought the video was a neat insight into how us "Hackers" are able to use code
-to simplify methods in statistics. Jake Vanderplas did a great job and keeping his speach engaging
+to simplify methods in statistics. Jake Vanderplas did a great job at keeping his speach engaging
 and it was a great insight into the world of code and statistics.
 
 4) H0 is that neither player has an advantage over the other
@@ -24,7 +24,7 @@ and it was a great insight into the world of code and statistics.
     The code simulated 100,000 fair games and found p-value = 0.0, meaning the observed 572-game difference
     between P2 (5074 wins) and P1 (4502 wins) would never occur by
     chance in a fair game. This strongly rejects H0 and confirms
-    that P2 has a statistically significant advantage.
+    that P2 has a statistically significant advantage over P1.
 
 References: 
 https://www.thoughtco.com/null-hypothesis-vs-alternative-hypothesis-3126413

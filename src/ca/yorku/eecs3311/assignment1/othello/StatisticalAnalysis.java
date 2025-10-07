@@ -30,9 +30,9 @@ public class StatisticalAnalysis {
             System.out.println("P-value: " + pValue);
             if (pValue < 0.05) {
                 String winner = p1Wins > p2Wins ? "P1" : "P2";
-                System.out.println("REJECT H0 - " + winner + " has significant advantage");
+                System.out.println("Reject the H0 - " + winner + " has significant advantage");
             } else {
-                System.out.println("FAIL TO REJECT H0 - No significant advantage");
+                System.out.println("Fail to reject H0 - No significant advantage");
             }
             }
 }
