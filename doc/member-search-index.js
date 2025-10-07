@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"ca.yorku.eecs3311.assignment1.othello","c":"Move","l":"getCol()"},{"p":"ca.yorku.eecs3311.assignment1.othello","c":"Move","l":"getRow()"},{"p":"ca.yorku.eecs3311.assignment1.othello","c":"Move","l":"Move(int, int)","u":"%3Cinit%3E(int,int)"},{"p":"ca.yorku.eecs3311.assignment1.othello","c":"Move","l":"toString()"}];updateSearchResults();
