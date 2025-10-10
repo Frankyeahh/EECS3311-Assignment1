@@ -1,7 +1,7 @@
-package ca.yorku.eecs3311.assignment1.othello;
+package ca.yorku.eecs3311.assignment1.othello.stats;
 /**
  * Statistical analysis for RandomVsRandom simulation
- * Implements the "hacker statistics" approach from Jake Vanderplas' PyCon talk
+ * Implements the "hacker statistics" approach from Jake Vanderplas
  */
 public class StatisticalAnalysis {
 

@@ -1,4 +1,8 @@
-package ca.yorku.eecs3311.assignment1.othello;
+package ca.yorku.eecs3311.assignment1.othello.player;
+
+import ca.yorku.eecs3311.assignment1.othello.game.Move;
+import ca.yorku.eecs3311.assignment1.othello.game.Othello;
+import ca.yorku.eecs3311.assignment1.othello.game.OthelloBoard;
 
 /**
  * PlayerGreedy makes a move by considering all possible moves that the player
@@ -20,7 +24,7 @@ package ca.yorku.eecs3311.assignment1.othello;
  *
  */
 
-public class PlayerGreedy {
+public class PlayerGreedy implements Player{
 	
 	private Othello othello;
 	private char player;

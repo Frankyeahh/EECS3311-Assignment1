@@ -1,4 +1,7 @@
-package ca.yorku.eecs3311.assignment1.othello;
+package ca.yorku.eecs3311.assignment1.othello.player;
+
+import ca.yorku.eecs3311.assignment1.othello.game.Move;
+import ca.yorku.eecs3311.assignment1.othello.game.Othello;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,7 +12,7 @@ import java.io.InputStreamReader;
  * 
  *
  */
-public class PlayerHuman {
+public class PlayerHuman implements Player{
 	
 	private static final String INVALID_INPUT_MESSAGE = "Invalid number, please enter 1-8";
 	private static final String IO_ERROR_MESSAGE = "I/O Error";

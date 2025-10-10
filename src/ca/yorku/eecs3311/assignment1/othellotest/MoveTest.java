@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import ca.yorku.eecs3311.assignment1.othello.Move;
+import ca.yorku.eecs3311.assignment1.othello.game.Move;
 
 public class MoveTest {
 	Move move;

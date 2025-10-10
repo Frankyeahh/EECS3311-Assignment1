@@ -5,9 +5,9 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import ca.yorku.eecs3311.assignment1.othello.Move;
-import ca.yorku.eecs3311.assignment1.othello.Othello;
-import ca.yorku.eecs3311.assignment1.othello.OthelloBoard;
+import ca.yorku.eecs3311.assignment1.othello.game.Move;
+import ca.yorku.eecs3311.assignment1.othello.game.Othello;
+import ca.yorku.eecs3311.assignment1.othello.game.OthelloBoard;
 
 public class OthelloTest {
 	Othello othello;

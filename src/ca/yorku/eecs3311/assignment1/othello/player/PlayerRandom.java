@@ -1,4 +1,7 @@
-package ca.yorku.eecs3311.assignment1.othello;
+package ca.yorku.eecs3311.assignment1.othello.player;
+
+import ca.yorku.eecs3311.assignment1.othello.game.Move;
+import ca.yorku.eecs3311.assignment1.othello.game.Othello;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -10,7 +13,7 @@ import java.util.Random;
  * of them.
  *
  */
-public class PlayerRandom {
+public class PlayerRandom implements Player{
 	
 	private Othello othello;
 	private char player;

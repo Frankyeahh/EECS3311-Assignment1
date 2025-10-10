@@ -1,4 +1,9 @@
-package ca.yorku.eecs3311.assignment1.othello;
+package ca.yorku.eecs3311.assignment1.othello.controller;
+
+import ca.yorku.eecs3311.assignment1.othello.game.Othello;
+import ca.yorku.eecs3311.assignment1.othello.game.OthelloBoard;
+import ca.yorku.eecs3311.assignment1.othello.game.OthelloPlay;
+import ca.yorku.eecs3311.assignment1.othello.player.PlayerRandom;
 
 /**
  * Determine whether the first player or second player has the advantage when
@@ -30,29 +35,13 @@ public class OthelloControllerRandomVSRandom {
             Othello othello = new Othello();
             PlayerRandom player1 = new PlayerRandom(othello, OthelloBoard.P1);
             PlayerRandom player2 = new PlayerRandom(othello, OthelloBoard.P2);
-
-            while(!(othello.isGameOver())){
-                Move move = null;
-                char whosTurn = othello.getWhosTurn();
-
-                if (whosTurn == OthelloBoard.P1)
-                    move = player1.getMove();
-                if (whosTurn == OthelloBoard.P2)
-                    move = player2.getMove();
-                
-                if (move != null) {
-                    othello.move(move.getRow(), move.getCol());
-                }
-                else{
-                    othello.move(-1, -1);
-                }
-            }
+            OthelloPlay gamePlayer = new OthelloPlay(othello, player1, player2, true);
+            gamePlayer.play();
 
             if(othello.getWinner() == OthelloBoard.P1)
                 p1wins++;
             else if (othello.getWinner() == OthelloBoard.P2)
                 p2wins++;
-
         }
 
 		System.out.println("Probability P1 wins=" + (float) p1wins / numGames);

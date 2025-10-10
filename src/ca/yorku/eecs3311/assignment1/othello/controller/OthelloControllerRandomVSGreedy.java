@@ -1,4 +1,10 @@
-package ca.yorku.eecs3311.assignment1.othello;
+package ca.yorku.eecs3311.assignment1.othello.controller;
+
+import ca.yorku.eecs3311.assignment1.othello.game.Othello;
+import ca.yorku.eecs3311.assignment1.othello.game.OthelloBoard;
+import ca.yorku.eecs3311.assignment1.othello.game.OthelloPlay;
+import ca.yorku.eecs3311.assignment1.othello.player.PlayerGreedy;
+import ca.yorku.eecs3311.assignment1.othello.player.PlayerRandom;
 
 /**
  * The goal here is to print out the probability that Random wins and Greedy
@@ -24,23 +30,8 @@ public class OthelloControllerRandomVSGreedy {
             Othello othello = new Othello();
             PlayerRandom player1 = new PlayerRandom(othello, OthelloBoard.P1);
             PlayerGreedy player2 = new PlayerGreedy(othello, OthelloBoard.P2);
-
-            while(!(othello.isGameOver())){
-                Move move = null;
-                char whosTurn = othello.getWhosTurn();
-
-                if (whosTurn == OthelloBoard.P1)
-                    move = player1.getMove();
-                if (whosTurn == OthelloBoard.P2)
-                    move = player2.getMove();
-
-                if (move != null) {
-                    othello.move(move.getRow(), move.getCol());
-                }
-                else{
-                    othello.move(-1, -1);
-                }
-            }
+            OthelloPlay gamePlayer = new OthelloPlay(othello, player1, player2, true);
+            gamePlayer.play();
 
             if(othello.getWinner() == OthelloBoard.P1)
                 p1wins++;

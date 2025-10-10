@@ -1,4 +1,4 @@
-package ca.yorku.eecs3311.assignment1.othello;
+package ca.yorku.eecs3311.assignment1.othello.game;
 
 import java.util.Random;
 
