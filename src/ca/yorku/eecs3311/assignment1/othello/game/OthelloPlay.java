@@ -1,5 +1,6 @@
 package ca.yorku.eecs3311.assignment1.othello.game;
 
+import ca.yorku.eecs3311.assignment1.exceptions.InvalidMoveException;
 import ca.yorku.eecs3311.assignment1.othello.player.Player;
 
 public class OthelloPlay {

@@ -2,6 +2,8 @@ package ca.yorku.eecs3311.assignment1.othello.game;
 
 // TODO: Javadoc this class
 
+import ca.yorku.eecs3311.assignment1.exceptions.InvalidMoveException;
+
 /**
  * Represents a move on the Othello board with a specific row and column
  * coordinate This class provides getter methods to retrieve the row and column
