@@ -2,14 +2,16 @@ package ca.yorku.eecs3311.assignment1.othello.player;
 
 import ca.yorku.eecs3311.assignment1.othello.game.Move;
 import ca.yorku.eecs3311.assignment1.othello.game.Othello;
+import ca.yorku.eecs3311.assignment1.exceptions.InvalidMoveException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * TODO: Document this class and make minimal changes as necessary.
- * 
+ * PlayerHuman handles input from a human player via the console.
+ * Prompts the user to enter row and column coordinates for their move.
+ * Validates the moves and the user needs to try again if it was an invalid move
  *
  */
 public class PlayerHuman implements Player{
@@ -29,9 +31,24 @@ public class PlayerHuman implements Player{
 
 	public Move getMove() {
 		
-		int row = getMove("row: ");
-		int col = getMove("col: ");
-		return new Move(row, col);
+		while(true) {
+			try {
+				int row = getMove("row: ");
+				int col = getMove("col: ");
+				
+				// validate if this is valid move
+				if(!othello.getBoard().isValidMove(row, col, player)) {
+					throw new InvalidMoveException(
+							"Invalid move at (" + row + "," + col + "). That position doesn't flip any opponent pieces. Please try again."
+						);
+				}
+				return new Move(row, col);
+			
+		} catch (InvalidMoveException e) {
+			System.out.println(e.getMessage());
+		}
+		
+	}
 	}
 
 	private int getMove(String message) {
