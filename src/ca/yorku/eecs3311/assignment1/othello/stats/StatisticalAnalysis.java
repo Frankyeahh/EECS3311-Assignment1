@@ -1,4 +1,10 @@
 package ca.yorku.eecs3311.assignment1.othello.stats;
+
+import ca.yorku.eecs3311.assignment1.othello.game.Othello;
+import ca.yorku.eecs3311.assignment1.othello.game.OthelloBoard;
+import ca.yorku.eecs3311.assignment1.othello.game.OthelloPlay;
+import ca.yorku.eecs3311.assignment1.othello.player.PlayerRandom;
+
 /**
  * Statistical analysis for RandomVsRandom simulation
  * Implements the "hacker statistics" approach from Jake Vanderplas
@@ -6,9 +12,22 @@ package ca.yorku.eecs3311.assignment1.othello.stats;
 public class StatisticalAnalysis {
 
     public static void main(String[] args) {
-        int p1Wins = 4502;
-        int p2Wins = 5074;
-        // exclude tied games from data
+        int p1Wins = 0;
+        int p2Wins = 0;
+
+        // run simulation of randomVsrandom
+        for(int game = 0; game < 10000; game++){
+            Othello othello = new Othello();
+            PlayerRandom player1 = new PlayerRandom(othello, OthelloBoard.P1);
+            PlayerRandom player2 = new PlayerRandom(othello, OthelloBoard.P2);
+            OthelloPlay gamePlayer = new OthelloPlay(othello, player1, player2, true);
+            gamePlayer.play();
+            if(othello.getWinner() == OthelloBoard.P1)
+                p1Wins++;
+            else if (othello.getWinner() == OthelloBoard.P2)
+                p2Wins++;
+        }
+
         int totalDecidedGames = p1Wins + p2Wins;
         int observedDifference = Math.abs(p1Wins - p2Wins);
 

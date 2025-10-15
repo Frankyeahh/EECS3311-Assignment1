@@ -9,7 +9,7 @@ as they win roughly 5.7% more of the time (P2: 50.74% vs P1: 45.02%).
 
 3) Briefly write your thoughts on the above video below:
 I thought the video was a neat insight into how us "Hackers" are able to use code
-to simplify methods in statistics. Jake Vanderplas did a great job at keeping his speach engaging
+to simplify methods in statistics. Jake Vanderplas did a great job at keeping his speach engaging,
 and it was a great insight into the world of code and statistics.
 
 4) H0 is that neither player has an advantage over the other
