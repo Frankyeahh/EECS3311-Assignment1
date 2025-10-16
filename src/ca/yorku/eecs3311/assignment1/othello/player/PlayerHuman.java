@@ -2,6 +2,7 @@ package ca.yorku.eecs3311.assignment1.othello.player;
 
 import ca.yorku.eecs3311.assignment1.othello.game.Move;
 import ca.yorku.eecs3311.assignment1.othello.game.Othello;
+import ca.yorku.eecs3311.assignment1.othello.game.OthelloBoard;
 import ca.yorku.eecs3311.assignment1.exceptions.InvalidMoveException;
 
 import java.io.BufferedReader;
@@ -30,6 +31,11 @@ public class PlayerHuman implements Player{
 	}
 
 	public Move getMove() {
+		// check if current player has any valid moves first
+		char whoCanMove = othello.getBoard().hasMove();
+	    	if (whoCanMove != player && whoCanMove != OthelloBoard.BOTH) {
+	    		return null; // Current player can't move, skip turn
+	     }
 		
 		while(true) {
 			try {

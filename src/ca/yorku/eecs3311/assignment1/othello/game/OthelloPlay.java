@@ -40,7 +40,6 @@ public class OthelloPlay {
             }
 
             if (!isBot) reporter.reportMove(whosTurn, move);
-            //othello.move(move.getRow(), move.getCol());
         }
         if(!isBot) reporter.reportFinal();
     }
